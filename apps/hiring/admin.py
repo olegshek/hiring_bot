@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.hiring.models import Resume, HiringRequest
+from apps.hiring.models import Resume, HiringRequest, Category
 from apps.hiring.signals import hiring_request_approved
 
 
@@ -48,5 +48,6 @@ class HiringRequestAdmin(admin.ModelAdmin):
             hiring_request_approved.send(sender=HiringRequest, instance=obj)
 
 
+admin.site.register(Category)
 admin.site.register(Resume, ResumeAdmin)
 admin.site.register(HiringRequest, HiringRequestAdmin)
