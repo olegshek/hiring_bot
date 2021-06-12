@@ -1,0 +1,23 @@
+[
+  {
+    "model": "bot.keyboard",
+    "pk": 1,
+    "fields": {
+      "code": "phone_number"
+    }
+  },
+  {
+    "model": "bot.keyboard",
+    "pk": 3,
+    "fields": {
+      "code": "language_choice"
+    }
+  },
+  {
+    "model": "bot.keyboard",
+    "pk": 5,
+    "fields": {
+      "code": "main_menu"
+    }
+  }
+]

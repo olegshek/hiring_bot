@@ -1,0 +1,82 @@
+[
+  {
+    "model": "bot.message",
+    "pk": 1,
+    "fields": {
+      "code": "greeting",
+      "text": "Welcome",
+      "text_ru": "Добро пожаловать",
+      "text_en": "Welcome"
+    }
+  },
+  {
+    "model": "bot.message",
+    "pk": 2,
+    "fields": {
+      "code": "phone_number",
+      "text": "Share your phone number",
+      "text_ru": "Отправьте ваш номер телефона воспользовавшись кнопкой ниже",
+      "text_en": "Share your phone number"
+    }
+  },
+  {
+    "model": "bot.message",
+    "pk": 7,
+    "fields": {
+      "code": "full_name",
+      "text": "Send you full name",
+      "text_ru": "Укажите ваше Ф.И.О",
+      "text_en": "Send you full name"
+    }
+  },
+  {
+    "model": "bot.message",
+    "pk": 8,
+    "fields": {
+      "code": "main_menu",
+      "text": "Main menu",
+      "text_ru": "Вы находитесь в главном меню",
+      "text_en": "Main menu"
+    }
+  },
+  {
+    "model": "bot.message",
+    "pk": 16,
+    "fields": {
+      "code": "language_choice",
+      "text": "Choose language",
+      "text_ru": "Выберите язык",
+      "text_en": "Choose language"
+    }
+  },
+  {
+    "model": "bot.message",
+    "pk": 20,
+    "fields": {
+      "code": "press_start",
+      "text": "Press /start",
+      "text_ru": "Нажмите /start",
+      "text_en": "Press /start"
+    }
+  },
+  {
+    "model": "bot.message",
+    "pk": 25,
+    "fields": {
+      "code": "email",
+      "text": "Send you email",
+      "text_ru": "Укажите ваш email",
+      "text_en": "Send you email"
+    }
+  },
+  {
+    "model": "bot.message",
+    "pk": 126,
+    "fields": {
+      "code": "invalid_email",
+      "text": "Invalid email",
+      "text_ru": "Невалидный формат",
+      "text_en": "Invalid email"
+    }
+  }
+]

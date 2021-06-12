@@ -1,0 +1,1 @@
+from apps.bot.telegram_views import bot, telegram_user

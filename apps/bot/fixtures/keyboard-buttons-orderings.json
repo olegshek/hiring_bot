@@ -1,0 +1,38 @@
+[
+  {
+    "model": "bot.keyboardbuttonsordering",
+    "pk": 1,
+    "fields": {
+      "keyboard": 1,
+      "button": 1,
+      "ordering": 0
+    }
+  },
+  {
+    "model": "bot.keyboardbuttonsordering",
+    "pk": 4,
+    "fields": {
+      "keyboard": 3,
+      "button": 6,
+      "ordering": 0
+    }
+  },
+  {
+    "model": "bot.keyboardbuttonsordering",
+    "pk": 5,
+    "fields": {
+      "keyboard": 3,
+      "button": 7,
+      "ordering": 3
+    }
+  },
+  {
+    "model": "bot.keyboardbuttonsordering",
+    "pk": 12,
+    "fields": {
+      "keyboard": 5,
+      "button": 5,
+      "ordering": 2
+    }
+  }
+]
