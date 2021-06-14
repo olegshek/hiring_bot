@@ -12,6 +12,7 @@ from apps.bot.utils import try_delete_message
 from apps.hiring import callback_filters
 from apps.hiring.states import HiringForm
 from apps.hiring.tortoise_models import Category, Resume, HiringRequest
+from apps.hiring.utils import send_resume_to_channel, send_candidate_request_to_channel
 
 
 async def send_categories(user_id, locale, message_id=None):
@@ -84,6 +85,7 @@ async def fill_out_resume(resume, locale, state, message_id=None):
 
     resume.filled_out_at = timezone.now()
     await resume.save()
+    await send_resume_to_channel(resume)
 
     telegram_user = await TelegramUser.get(id=user_id)
     text = (await messages.get_message('request_accepted', locale))
@@ -260,6 +262,7 @@ async def send_hiring_request(query, state, locale):
     resume_id = int(data[1])
 
     hiring_request = await HiringRequest.create(resume_id=resume_id, user_id=user_id)
+    await send_candidate_request_to_channel(hiring_request)
     telegram_user = await TelegramUser.get(id=user_id)
 
     await try_delete_message(user_id, query.message.message_id)
