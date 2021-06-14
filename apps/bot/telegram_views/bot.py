@@ -69,11 +69,11 @@ async def back(user_id, state, locale, message_id=None):
             resume_id = data['resume_id']
             resume_state = data['resume_state']
 
-        resume = await Resume.get(id=resume_id)
-
         if resume_state == 'email':
             from apps.hiring.telegram_views import send_categories
             return await send_categories(user_id, locale)
+
+        resume = await Resume.get(id=resume_id)
 
         if resume_state == 'photo':
             from apps.hiring.telegram_views import send_categories

@@ -176,11 +176,11 @@ async def select_category(query, locale, state):
         data['category_id'] = category_id
 
     if hiring_type == 'submit_resume':
-        unfilled_resume_ids = await Resume.filter(filled_out_at__isnull=True).values_list('id', flat=True)
         await Resume.filter(filled_out_at__isnull=True).delete()
-        # if await Resume.filter(category_id=category_id):
-        #     await bot.send_message(user_id, await messages.get_message('resume_exist', locale))
-        #     return await send_categories(user_id, locale, message_id)
+
+        if await Resume.filter(category_id=category_id):
+            await bot.send_message(user_id, await messages.get_message('resume_exist', locale))
+            return await send_categories(user_id, locale, message_id)
 
         resume = await Resume.create(user_id=user_id, category_id=category_id)
 
