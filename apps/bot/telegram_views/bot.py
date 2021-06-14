@@ -69,13 +69,20 @@ async def back(user_id, state, locale, message_id=None):
             resume_id = data['resume_id']
             resume_state = data['resume_state']
 
+        resume = await Resume.get(id=resume_id)
+
         if resume_state == 'email':
             from apps.hiring.telegram_views import send_categories
 
-            await try_delete_message(user_id, message_id)
+            if not await Resume.filter(user_id=user_id).exclude(id=resume_id):
+                user = await resume.user
+                user.email = None
+                await user.save()
+                await try_delete_message(user_id, message_id)
+                return await send_categories(user_id, locale)
+
             return await send_categories(user_id, locale)
 
-        resume = await Resume.get(id=resume_id)
         prev_state = prev_resume_states[resume_state]
         setattr(resume, prev_state, None)
         await resume.save()
