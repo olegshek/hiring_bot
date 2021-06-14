@@ -235,7 +235,7 @@ async def apply_resume_photo(message: Message, locale, state):
     if not message.photo and not message.document:
         return await fill_out_resume(resume, locale, state)
 
-    photo = message.photo[0] if message.photo else message.document
+    photo = message.photo[-1] if message.photo else message.document
     photo_name = f'{uuid4()}.jpg'
     await photo.download(f'media/{photo_name}', make_dirs=True)
 
