@@ -73,13 +73,16 @@ async def back(user_id, state, locale, message_id=None):
 
         if resume_state == 'email':
             from apps.hiring.telegram_views import send_categories
+            return await send_categories(user_id, locale)
 
+        if resume_state == 'photo':
+            from apps.hiring.telegram_views import send_categories
             if not await Resume.filter(user_id=user_id).exclude(id=resume_id):
                 user = await resume.user
                 user.email = None
                 await user.save()
                 await try_delete_message(user_id, message_id)
-                return await send_categories(user_id, locale)
+                return await fill_out_resume(resume, locale, state)
 
             return await send_categories(user_id, locale)
 
